@@ -1,72 +1,33 @@
-﻿// See https://aka.ms/new-console-template for more information
-//declare some random bullshit variables to play with
-float piAsFloat = 3.14159265359F;
-double piAsDouble = 3.14159265359D;
-int myInteger = 0;
-uint myUnsignedInt = 2;
-//byte mySbyte = 255;
-//byte myByte = 255;
-//short myShort = -11;
-//long myLong = -14;
-//ulong myUlong = 16;
-//short myUshort = 13;
-bool myTrue = true;
-bool myFalse = false;
-//quick and dirty write to console
-Console.WriteLine("UInt type: {0}", myUnsignedInt);
-Console.WriteLine("Int type(signed): {0}", myInteger);
-Console.WriteLine("");
-Console.WriteLine("Pi as a float: {0}", piAsFloat);
-Console.WriteLine("Pi as double: {0}", piAsDouble); 
-Console.WriteLine("This is a an example of different \"Float Types\"");
+﻿//explicit typing
+int explicitInt = 1;
 
-//if true
-if (myTrue)
-{
-    Console.WriteLine("myTrue was True");
-}
-// if false
-if (!myFalse)
-{
-    Console.WriteLine("This prints if myFalse is false");
-}
-// dirty while loop
-int i = 0;
-while(i<=10)
-{
-    Console.WriteLine("i is currently: {0}", i);
-    i++;
-}
-// creates int array
-int[] myIntArray = {1, 2, 3, 4, 5};
+// implicit typing
+var implicitInt = 1;
 
-//creates empty int array (must declare expected amount of values)
-int[] myEmptyArray = new int[5];
+// when var can and cant be used
 
-// Arrays are zero indexed
-// print 3rd element of array
-Console.WriteLine("3rd element (2 index): {0}", myIntArray[2]);
+//ok
+int emptyInt;
+//not ok
+//var emptyInt; //uncomment to break code, can not implicit type empty variable 
 
-//Tuple. Declared like (value, value, value)
+//mutable var
+var mutableVar = "blah";
 
-(string, string, int) tuple = ("String 1", "String 2", 10);
+//immutable var: MUST BE EXPLICITLY TYPED
+const string immutableVar = "not blah";
 
-// print elements like this 
-Console.WriteLine("Tuple value 1 {0}", tuple.Item1);
-Console.WriteLine("Tuple value 2 {0}", tuple.Item2);
-Console.WriteLine("Tuple value 3 {0}", tuple.Item3);
 
-//deconstruction example
-(string, string, int) tupleDeconstruction = ("String 1", "String 2", 10);
-(string string1, string string2, int int1) = tupleDeconstruction;
-Console.WriteLine("{0}, {1}, {2}", string1, string2, int1);
+// implicit cast
 
-// String concatenation
-string firstName = "edge";
-string lastName = "case";
-// interpolation
-Console.WriteLine($"{firstName}{lastName}");
-//+ operator
-Console.WriteLine(firstName + " " + lastName);
-//string formatting
-Console.WriteLine("{0} {1}", firstName, lastName);
+var i = 20;
+double d = i;
+
+//invalid cast
+double d1 = 3.14D;
+// int i1 = d1; //uncomment to break the code due to invalid cast
+//explicit cast
+double d2 = 3.14D;
+int i2 = (int)d2;
+
+Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", explicitInt, implicitInt, i, d, d1, d2, i2);
