@@ -56,3 +56,17 @@ Console.WriteLine("Tuple value 1 {0}", tuple.Item1);
 Console.WriteLine("Tuple value 2 {0}", tuple.Item2);
 Console.WriteLine("Tuple value 3 {0}", tuple.Item3);
 
+//deconstruction example
+(string, string, int) tupleDeconstruction = ("String 1", "String 2", 10);
+(string string1, string string2, int int1) = tupleDeconstruction;
+Console.WriteLine("{0}, {1}, {2}", string1, string2, int1);
+
+// String concatenation
+string firstName = "edge";
+string lastName = "case";
+// interpolation
+Console.WriteLine($"{firstName}{lastName}");
+//+ operator
+Console.WriteLine(firstName + " " + lastName);
+//string formatting
+Console.WriteLine("{0} {1}", firstName, lastName);
