@@ -1,33 +1,105 @@
-﻿//explicit typing
-int explicitInt = 1;
+﻿using System;
+//control flow
 
-// implicit typing
-var implicitInt = 1;
+// if else elif
 
-// when var can and cant be used
+var blah = true;
 
-//ok
-int emptyInt;
-//not ok
-//var emptyInt; //uncomment to break code, can not implicit type empty variable 
+if (blah)
+{
+    Console.WriteLine("Prints because true");
+}
 
-//mutable var
-var mutableVar = "blah";
+if (!blah)
+{
+    Console.WriteLine("Doesn't print because false"); //! flips boolean, ie not blah == blah is not true
+}
 
-//immutable var: MUST BE EXPLICITLY TYPED
-const string immutableVar = "not blah";
+if (!blah)
+{
+    Console.WriteLine("Doesn't print because not ture");
+}
+else if (blah)
+{
+    Console.WriteLine("Prints because true");
+}
+else
+{
+    Console.WriteLine("Doesn't print unless no other conditions are met");
+}
+//case switch
+//Better than multiple if else if else statements
 
+var animal = "Dog";
 
-// implicit cast
+var sound = animal switch
+{
+    "Dog" => "Woof",
+    "Cat" => "Meow",
+    _ => "Mute"
+};
+Console.WriteLine(sound);
+animal = "Cat";
 
-var i = 20;
-double d = i;
+sound = animal switch
+{
+    "Dog" => "Woof",
+    "Cat" => "Meow",
+    _ => "Mute"
+};
+Console.WriteLine(sound);
+animal = "Penguin";
 
-//invalid cast
-double d1 = 3.14D;
-// int i1 = d1; //uncomment to break the code due to invalid cast
-//explicit cast
-double d2 = 3.14D;
-int i2 = (int)d2;
+sound = animal switch
+{
+    "Dog" => "Woof",
+    "Cat" => "Meow",
+    _ => "Mute"
+};
+Console.WriteLine(sound);
+//enums
+//var (firstName, lastName, status) = ("Charles", "Dickens", Status.Dead);
 
-Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", explicitInt, implicitInt, i, d, d1, d2, i2);
+//internal enum Status
+//
+ // Dead,
+ //   Alive
+//};
+//for loop
+
+for (int i1 =0; i1 < 10; i1++)
+{
+    Console.WriteLine(i1);
+}
+
+var array = new[] {1, 2, 3, 4, 5};
+for (var i2 = 0; i2 < array.Length; i2++)
+{
+    Console.WriteLine(array[i2]);
+}
+
+// while loop
+var i3 = 0;
+while (i3 < 10)
+{
+    Console.WriteLine(i3);
+    i3++;
+}
+
+while (true)
+{
+    Console.Write("> ");
+    var input = Console.ReadLine();
+    if (string.IsNullOrWhiteSpace(input))
+    {
+        continue;
+    }
+    else if (input == "exit")
+    {
+        break;
+    }
+    else
+    {
+        Console.WriteLine("You entered: {0}", input);
+    }
+}
