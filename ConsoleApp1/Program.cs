@@ -94,7 +94,7 @@ while (true)
     {
         continue;
     }
-    else if (input == "exit")
+    else if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
     {
         break;
     }
