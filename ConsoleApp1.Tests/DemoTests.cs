@@ -2,10 +2,13 @@ namespace ConsoleApp1.Tests;
 
 public class DemoTests
 {
+    private static readonly int[] FiveElements = { 1, 2, 3, 4, 5 };
+    private static readonly int[] TwoElements = { 1, 2 };
+
     [Fact]
     public void GetThirdElement_ReturnsTheElementAtIndexTwo()
     {
-        var result = Demo.GetThirdElement(new[] { 1, 2, 3, 4, 5 });
+        var result = Demo.GetThirdElement(FiveElements);
 
         Assert.Equal(3, result);
     }
@@ -13,7 +16,7 @@ public class DemoTests
     [Fact]
     public void GetThirdElement_ThrowsWhenArrayHasFewerThanThreeElements()
     {
-        Assert.Throws<ArgumentException>(() => Demo.GetThirdElement(new[] { 1, 2 }));
+        Assert.Throws<ArgumentException>(() => Demo.GetThirdElement(TwoElements));
     }
 
     [Fact]
