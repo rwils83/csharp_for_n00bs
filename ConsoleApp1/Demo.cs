@@ -1,3 +1,5 @@
+namespace ConsoleApp1;
+
 public static class Demo
 {
     public static int GetThirdElement(int[] values)

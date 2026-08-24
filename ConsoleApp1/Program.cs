@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ConsoleApp1;
+
 //declare some random bullshit variables to play with
 float piAsFloat = 3.14159265359F;
 double piAsDouble = 3.14159265359D;
