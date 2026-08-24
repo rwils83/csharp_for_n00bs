@@ -37,6 +37,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
         run: |
-          dotnet-sonarscanner begin /k:"${{ vars.SONAR_PROJECT_KEY }}" /d:sonar.token="$SONAR_TOKEN" /d:sonar.host.url="$SONAR_HOST_URL"
+          dotnet-sonarscanner begin /k:"${{ vars.SONAR_PROJECT_KEY }}" /d:sonar.token="$SONAR_TOKEN" /d:sonar.host.url="$SONAR_HOST_URL" /d:sonar.cs.cobertura.reportsPaths="**/coverage.cobertura.xml"
           dotnet build
-          dotnet-sonarscanner end /d:sonar.token="$SONAR_TOKEN"
+          dotnet test --collect:"XPlat Code Coverage"
+          dotnet-sonarscanner end /d:sonar.token="$SONAR_TOKEN" /d:sonar.qualitygate.wait=true

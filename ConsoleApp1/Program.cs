@@ -44,15 +44,13 @@ int[] myIntArray = {1, 2, 3, 4, 5};
 int[] myEmptyArray = new int[5];
 
 // Arrays are zero indexed
-// print 3rd element of array
-Console.WriteLine("3rd element (2 index): {0}", myIntArray[2]);
+// print 3rd element of array -- via a real, testable method
+Console.WriteLine("3rd element (2 index): {0}", Demo.GetThirdElement(myIntArray));
 
 //Tuple. Declared like (value, value, value)
 
 (string, string, int) tuple = ("String 1", "String 2", 10);
 
-// print elements like this 
-Console.WriteLine("Tuple value 1 {0}", tuple.Item1);
-Console.WriteLine("Tuple value 2 {0}", tuple.Item2);
-Console.WriteLine("Tuple value 3 {0}", tuple.Item3);
+// print elements like this -- via a real, testable method
+Console.WriteLine(Demo.DescribeTuple(tuple));
 
